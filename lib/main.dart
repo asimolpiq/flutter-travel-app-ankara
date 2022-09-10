@@ -6,6 +6,11 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Travel App', home: HomeScreen());
+    return MaterialApp(
+      title: 'Travel App',
+      theme: ThemeData.dark().copyWith(appBarTheme: AppBarTheme(centerTitle: true)),
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
