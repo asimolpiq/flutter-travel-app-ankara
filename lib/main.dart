@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_ankara_flutter/views/login_vew.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
