@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:travel_app_ankara_flutter/view/login_vew.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -7,22 +8,14 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            ImageHolder(),
-
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: MyStepper(),
-            ),
-
-          ]
-
-        )
-      )
-    );
+        body: Center(
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+      ImageHolder(),
+      Padding(
+        padding: EdgeInsets.all(8.0),
+        child: MyStepper(),
+      ),
+    ])));
   }
 }
 
@@ -35,13 +28,11 @@ class ImageHolder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(20),
-    child: SizedBox(
-        height: 90,
-        width: 90,
-        child: Image.asset('assets/images/logo.jpg')),
+      child: SizedBox(height: 90, width: 90, child: Image.asset('assets/images/logo.jpg')),
     );
   }
 }
+
 class MyStepper extends StatefulWidget {
   const MyStepper({super.key});
 
@@ -55,11 +46,8 @@ class _MyStepperState extends State<MyStepper> {
   @override
   Widget build(BuildContext context) {
     return Stepper(
-
-
         currentStep: _index,
         onStepCancel: () {
-
           if (_index > 0) {
             setState(() {
               _index--;
@@ -71,8 +59,8 @@ class _MyStepperState extends State<MyStepper> {
             setState(() {
               _index += 1;
             });
-          }else{
-           // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginScreen()));
+          } else {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const LoginView()));
           }
         },
         onStepTapped: (int index) {
@@ -95,17 +83,16 @@ class _MyStepperState extends State<MyStepper> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Center(
-                        child: Column( // c1
+                        child: Column(
+                          // c1
                           children: const [
                             Text(
                               'Welcome to Travel App',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               'Let\'s start your journey',
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -113,8 +100,7 @@ class _MyStepperState extends State<MyStepper> {
                     ),
                   ],
                 ),
-              )
-          ),
+              )),
           Step(
               title: const Text("Have you an acount?"),
               content: Column(
@@ -127,31 +113,27 @@ class _MyStepperState extends State<MyStepper> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
-                      child: Column( // c1
+                      child: Column(
+                        // c1
                         children: const [
                           Text(
                             'Already have an account?',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             'Login to your account',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             'Press continue to login',
-                              style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
                     ),
                   ),
                 ],
-
-          ))
-        ]
-    );
+              ))
+        ]);
   }
 }

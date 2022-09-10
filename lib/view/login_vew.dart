@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:travel_app_ankara_flutter/view/home.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -12,7 +13,9 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
+
   final String emailHint = "Email ID";
   final String passwordHint = "Password";
   final String loginText = "Login";
@@ -61,8 +64,7 @@ class _LoginViewState extends State<LoginView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          textButton(
-                              onPressed: () {}, text: forgotPasswordText),
+                          textButton(onPressed: () {}, text: forgotPasswordText),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -77,9 +79,7 @@ class _LoginViewState extends State<LoginView> {
                         children: [
                           Text(
                             registerText,
-                            style: TextStyle(
-                                color: Colors.black.withOpacity(.5),
-                                fontWeight: FontWeight.w500),
+                            style: TextStyle(color: Colors.black.withOpacity(.5), fontWeight: FontWeight.w500),
                           ),
                           textButton(onPressed: () {}, text: register),
                         ],
@@ -144,9 +144,7 @@ class _LoginViewState extends State<LoginView> {
           padding: horizontalNormalPadding,
           child: Text(
             'OR',
-            style: TextStyle(
-                color: Colors.black.withOpacity(.5),
-                fontWeight: FontWeight.w500),
+            style: TextStyle(color: Colors.black.withOpacity(.5), fontWeight: FontWeight.w500),
           ),
         ),
         const Flexible(child: Divider()),
@@ -156,7 +154,10 @@ class _LoginViewState extends State<LoginView> {
 
   TextButton textButton({required Function onPressed, required String text}) {
     return TextButton(
-        onPressed: () {},
+        // onPressed: () {Navigator.push(cont},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (b) => HomeScreen()));
+        },
         child: Text(
           text,
           style: TextStyle(color: blueColor, fontWeight: FontWeight.w600),
@@ -182,10 +183,8 @@ class _LoginViewState extends State<LoginView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(width: 24, child: googleImage),
-              Text(googleWithLogin,
-                  style: TextStyle(color: Colors.black.withOpacity(.8))),
-              Opacity(
-                  opacity: 0, child: SizedBox(width: 24, child: googleImage)),
+              Text(googleWithLogin, style: TextStyle(color: Colors.black.withOpacity(.8))),
+              Opacity(opacity: 0, child: SizedBox(width: 24, child: googleImage)),
             ],
           ),
         ),
@@ -212,7 +211,7 @@ class _LoginViewState extends State<LoginView> {
             }
             break;
           case TextEditingType.password:
-            if (value.length > 5) {
+            if (value.length < 6) {
               return 'Lütfen en az 6 karakter giriniz';
             }
             break;
@@ -221,15 +220,13 @@ class _LoginViewState extends State<LoginView> {
         }
         return null;
       },
-      obscureText:
-          textEditingType == TextEditingType.password ? !isVisible : false,
+      obscureText: textEditingType == TextEditingType.password ? !isVisible : false,
       decoration: InputDecoration(
         border: const UnderlineInputBorder(),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.black.withOpacity(.2)),
         ),
-        focusedBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: blueColor)),
+        focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: blueColor)),
         hintText: hintText,
         suffixIcon: textEditingType == TextEditingType.password
             ? IconButton(
@@ -237,23 +234,26 @@ class _LoginViewState extends State<LoginView> {
                   isVisible = !isVisible;
                   setState(() {});
                 },
-                icon: isVisible
-                    ? const Icon(CupertinoIcons.eye_slash_fill)
-                    : const Icon(CupertinoIcons.eye))
+                icon: isVisible ? const Icon(CupertinoIcons.eye_slash_fill) : const Icon(CupertinoIcons.eye))
             : const SizedBox(),
         icon: icon,
       ),
     );
   }
 
-  EdgeInsets get horizontalNormalPadding =>
-      const EdgeInsets.symmetric(horizontal: 24.0);
+  EdgeInsets get horizontalNormalPadding => const EdgeInsets.symmetric(horizontal: 24.0);
 
   Color get blueColor => const Color(0xFF0164FF);
 
   Color get greyColor => const Color(0xffF1F6F7);
 
+  //googleImage
   Image get googleImage => Image.asset('assets/google.png');
+
+  //googleImage()
+  Image googleImage2() {
+    return Image.asset('assets/google.png');
+  }
 }
 
 enum TextEditingType {

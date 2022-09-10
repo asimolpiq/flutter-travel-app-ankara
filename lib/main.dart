@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app_ankara_flutter/start_screen.dart';
 import 'package:travel_app_ankara_flutter/view/home.dart';
+import 'package:travel_app_ankara_flutter/view/login_vew.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Travel App',
       theme: _customTheme(),
-      home: HomeScreen(),
+      home: StartScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
