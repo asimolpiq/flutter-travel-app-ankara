@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app_ankara_flutter/view/home.dart';
+import 'package:travel_app_ankara_flutter/views/login_vew.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Travel App',
-      theme: ThemeData.light().copyWith(appBarTheme: AppBarTheme(centerTitle: true)),
-      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
+      title: 'Material App',
+      home: LoginView(),
+      color:  const Color(0xff0164FF),
     );
   }
 }
