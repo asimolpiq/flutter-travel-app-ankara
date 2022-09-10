@@ -8,9 +8,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel App',
-      theme: ThemeData.light().copyWith(appBarTheme: AppBarTheme(centerTitle: true)),
+      theme: _customTheme(),
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
+  }
+
+  ThemeData _customTheme() {
+    return ThemeData.light().copyWith(
+        appBarTheme: AppBarTheme(
+      centerTitle: true,
+    ));
   }
 }
