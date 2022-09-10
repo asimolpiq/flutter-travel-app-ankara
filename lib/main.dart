@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Travel App',
-      theme: ThemeData.dark().copyWith(appBarTheme: AppBarTheme(centerTitle: true)),
+      theme: ThemeData.light().copyWith(appBarTheme: AppBarTheme(centerTitle: true)),
       home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
