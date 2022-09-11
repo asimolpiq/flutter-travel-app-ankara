@@ -78,10 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(left: 20),
           child: Text(
             "Categories",
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                ?.copyWith(color: ProductColors.primary, decoration: TextDecoration.underline),
+            style: Theme.of(context).textTheme.headline5?.copyWith(
+                color: ProductColors.primary,
+                decoration: TextDecoration.underline),
           ),
         ),
       ],
@@ -93,7 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.all(10.0),
       child: SearchField(
         suggestions: Countrys().countryList,
-        searchInputDecoration: ProjectMaterials().searchDecoration(searchController),
+        searchInputDecoration:
+            ProjectMaterials().searchDecoration(searchController),
         controller: searchController,
         onTap: (value) {},
       ),
@@ -114,7 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(left: 20),
           child: Text(
             "Where are you heading to?",
-            style: Theme.of(context).textTheme.headline5?.copyWith(color: ProductColors.primary),
+            style: Theme.of(context)
+                .textTheme
+                .headline5
+                ?.copyWith(color: ProductColors.primary),
           ),
         ),
       ],
@@ -128,10 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(left: 20),
           child: Text(
             "Hi, Anonymous",
-            style: Theme.of(context)
-                .textTheme
-                .headline4
-                ?.copyWith(color: ProductColors.primary, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.headline4?.copyWith(
+                color: ProductColors.primary, fontWeight: FontWeight.bold),
           ),
         ),
       ],
@@ -142,10 +143,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBar(
       elevation: 0,
       title: Text("Travel Book",
-          style: Theme.of(context)
-              .textTheme
-              .headline4
-              ?.copyWith(color: ProductColors.secondary, fontWeight: FontWeight.w600)),
+          style: Theme.of(context).textTheme.headline4?.copyWith(
+              color: ProductColors.secondary, fontWeight: FontWeight.w600)),
       bottom: PreferredSize(
           child: Container(
             color: Colors.lightBlue[200],
