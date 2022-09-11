@@ -6,24 +6,24 @@ class ProjectMaterials {
   InputDecoration searchDecoration(TextEditingController controller) {
     return InputDecoration(
         filled: true,
-        fillColor: ProductColors.secondary,
-        hintText: "Search a country",
+        fillColor: ProductColors.whiteCustom,
+        hintText: "Search a country...",
         contentPadding: EdgeInsets.all(10),
-        hoverColor: ProductColors.coffee,
-        focusColor: ProductColors.coffee,
+        hoverColor: ProductColors.secondary,
+        focusColor: ProductColors.secondary,
         suffixIcon: InkWell(
           child: searchIcon(),
           onTap: () {},
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: ProductColors.coffee ?? Colors.black)),
+            borderSide: BorderSide(color: ProductColors.secondary ?? Colors.black)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: ProductColors.coffee ?? Colors.black)));
+            borderSide: BorderSide(color: ProductColors.secondary ?? Colors.black)));
   }
 
   Container searchIcon() {

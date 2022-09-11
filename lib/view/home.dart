@@ -22,11 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
       resizeToAvoidBottomInset: false,
       appBar: _customAppbar(context),
       body: Column(children: [
-        _productDividerMin(),
+        _productSizedboxMax(),
         _headTextFirst(context),
         _headTextSecond(context),
-        _productDividerMin(),
+        _productSizedboxMax(),
         _SearchBox(),
+        _productDividerMin(),
         _Categories(context),
         _productDividerMin(),
         Expanded(
@@ -48,25 +49,53 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Card _cards(BuildContext context) {
-    return Card(
-      color: ProductColors.secondary,
-      child: Center(
-        child: ListTile(
-          leading: Image.network(
-            "https://picsum.photos/200/300",
-            width: 40,
-            fit: BoxFit.fill,
+  SizedBox _productSizedboxMax() {
+    return const SizedBox(
+      height: 40,
+    );
+  }
+
+  Padding _cards(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
+            width: 2,
           ),
-          title: Text(
-            "Museum",
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          subtitle: Text(
-            "View a Museum",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
+          borderRadius: BorderRadius.circular(12),
         ),
+        child: Stack(children: [
+          Image.network(
+            "https://picsum.photos/200/300",
+            fit: BoxFit.fill,
+            width: double.infinity,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Container(
+              height: 65,
+              decoration: BoxDecoration(
+                color: Colors.white70,
+                border: Border.all(
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                title: Text(
+                  "Museum",
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 20),
+                ),
+                subtitle: Text(
+                  "View a Museum",
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+              ),
+            ),
+          ),
+        ]),
       ),
     );
   }
@@ -81,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: Theme.of(context)
                 .textTheme
                 .headline5
-                ?.copyWith(color: ProductColors.primary, decoration: TextDecoration.underline),
+                ?.copyWith(color: ProductColors.black, decoration: TextDecoration.underline),
           ),
         ),
       ],
@@ -107,6 +136,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Divider _productDividerMax() {
+    return const Divider(
+      thickness: 10,
+      color: Colors.transparent,
+    );
+  }
+
   Row _headTextSecond(BuildContext context) {
     return Row(
       children: [
@@ -114,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.only(left: 20),
           child: Text(
             "Where are you heading to?",
-            style: Theme.of(context).textTheme.headline5?.copyWith(color: ProductColors.primary),
+            style: Theme.of(context).textTheme.headline5?.copyWith(color: ProductColors.black),
           ),
         ),
       ],
@@ -131,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: Theme.of(context)
                 .textTheme
                 .headline4
-                ?.copyWith(color: ProductColors.primary, fontWeight: FontWeight.bold),
+                ?.copyWith(color: ProductColors.black, fontWeight: FontWeight.bold),
           ),
         ),
       ],
@@ -140,15 +176,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _customAppbar(BuildContext context) {
     return AppBar(
-      elevation: 0,
+      elevation: 5,
       title: Text("Travel Book",
-          style: Theme.of(context)
-              .textTheme
-              .headline4
-              ?.copyWith(color: ProductColors.secondary, fontWeight: FontWeight.w600)),
+          style:
+              Theme.of(context).textTheme.headline4?.copyWith(color: ProductColors.white, fontWeight: FontWeight.w600)),
       bottom: PreferredSize(
           child: Container(
-            color: Colors.lightBlue[200],
+            color: ProductColors.secondary,
             height: 4.0,
           ),
           preferredSize: Size.fromHeight(4.0)),

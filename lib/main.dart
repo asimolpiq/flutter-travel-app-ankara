@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Travel App',
       theme: _customTheme(),
-      home: StartScreen(),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
